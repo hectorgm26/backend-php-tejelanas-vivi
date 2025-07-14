@@ -23,7 +23,7 @@ Este proyecto proporciona la lógica backend para gestionar datos del emprendimi
 │           ├── /Models/        # Modelos PHP que representan las entidades
 │           ├── /Controller/    # Controladores para las operaciones CRUD
 │           └── /Docs/          # Documentación adicional
-│               └── ejemplo_db.txt  # Ejemplo básico de llenado de base de datos
+│               └── sql.txt  # Ejemplo básico de llenado de base de datos
 ```
 
 ## Acceso a la documentación
@@ -57,7 +57,7 @@ Desde ahí podrás enviar solicitudes a los endpoints CRUD, ver ejemplos y respu
    ```
 
 2. Configura tu servidor PHP (por ejemplo, XAMPP, WAMP, o PHP built-in server).
-3. Crear la base de datos respectiva (en la carpeta v1/Docs hay un archivo txt que sirve para el modelo de creación y llenado con datos de prueba ficticios para su implementación)
+3. Crea la base de datos necesaria utilizando el script de ejemplo que encontrarás en v1/Docs/sql.txt. Este archivo contiene la estructura y datos de prueba ficticios para facilitar la implementación y pruebas de la API.
 
 4. Accede a la documentación Swagger para probar la API:
    ```
