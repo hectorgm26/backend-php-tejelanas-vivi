@@ -65,6 +65,64 @@ Desde ahí podrás enviar solicitudes a los endpoints CRUD, ver ejemplos y respu
 
 4. Utiliza Swagger UI o Postman para probar las operaciones CRUD definidas.
 
+## Arquitectura del Sistema
+
+### Enrutado Principal (index.php)
+
+El archivo `index.php` actúa como el punto de entrada principal de la API y maneja:
+
+- **Configuración CORS**: Permite solicitudes desde cualquier origen y métodos HTTP estándar
+- **Autenticación**: Valida el token Bearer 'ipss' en el header Authorization
+- **Enrutado**: Procesa las rutas usando `PATH_INFO` para identificar recursos e IDs
+- **Delegación**: Redirige las peticiones a los controladores correspondientes
+
+**Estructura de rutas soportadas:**
+- `/producto` - Gestión de productos
+- `/servicio` - Gestión de servicios/talleres
+- `/producto/{id}` - Operaciones sobre producto específico
+- `/servicio/{id}` - Operaciones sobre servicio específico
+
+### Controladores
+
+Los controladores actúan como intermediarios entre las rutas y los modelos:
+
+**productosController.php**
+- `getallProductos()`: Obtiene todos los productos activos
+- `postProducto()`: Crea un nuevo producto
+- `putProducto()`: Actualiza completamente un producto
+- `patchProducto()`: Actualiza solo el stock
+- `deleteProducto()`: Elimina lógicamente un producto
+
+**serviciosController.php**
+- `getServicios()`: Obtiene todos los servicios activos
+- `postServicio()`: Crea un nuevo servicio/taller
+- `putServicio()`: Actualiza completamente un servicio
+- `patchServicio()`: Actualiza solo los cupos disponibles
+- `deleteServicio()`: Elimina lógicamente un servicio
+
+### Modelos
+
+Los modelos manejan la interacción directa con la base de datos:
+
+**ProductosModel.php**
+- Extiende de la clase `Conexion` para acceso a BD
+- Implementa operaciones CRUD con consultas preparadas
+- Maneja eliminación lógica (campo `estado`)
+- Utiliza parámetros bind para prevenir inyección SQL
+
+**ServiciosModel.php**
+- Gestiona la tabla `servicios` con campos: título, descripción, fecha, ubicación, cupos
+- Implementa el patrón de eliminación lógica
+- Utiliza transacciones para garantizar consistencia de datos
+
+### Características Técnicas
+
+- **Eliminación Lógica**: Los registros no se eliminan físicamente, solo se marca `estado = 0`
+- **Consultas Preparadas**: Todas las consultas usan parámetros bind para seguridad
+- **Gestión de Conexiones**: Cierre automático de conexiones en bloques `finally`
+- **Manejo de Errores**: Try-catch en todas las operaciones de BD
+- **Códigos HTTP**: Respuestas apropiadas según el resultado de la operación
+
 ## Contacto
 
 Para consultas o colaboraciones, puedes contactarme a través de GitHub.
