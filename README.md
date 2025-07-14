@@ -42,6 +42,7 @@ Desde ahí podrás enviar solicitudes a los endpoints CRUD, ver ejemplos y respu
 - La API se prueba usando Swagger UI o herramientas como Postman.
 - Asegúrate de tener PHP configurado con soporte para `.htaccess` y URL rewriting.
 - Ejecuta el servidor en la raíz del proyecto para que el enrutado funcione correctamente.
+- Utiliza el token Bearer 'ipss' para autorización en todas las peticiones.
 
 ## Requisitos
 
