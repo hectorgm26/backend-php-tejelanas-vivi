@@ -1,0 +1,278 @@
+openapi: 3.0.0
+info:
+  title: API de Tejelanas Vivi
+  version: 1.0.0
+  description: Documentación de la API para el backend de Tejelanas Vivi
+
+servers:
+  - url: http://localhost/api-tejelanas/api/tejelanas/index.php
+
+tags:
+  - name: Productos
+    description: Operaciones relacionadas con productos de Tejelanas Vivi
+  - name: Servicios
+    description: Operaciones relacionadas con servicios de Tejelanas Vivi
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+paths:
+  /producto:
+    get:
+      tags:
+        - Productos
+      summary: Obtener todos los productos disponibles
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Lista de productos disponibles
+
+    post:
+      tags:
+        - Productos
+      summary: Crear un nuevo producto
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - nombre
+                - descripcion
+                - precio
+                - stock
+                - tipo
+              properties:
+                nombre:
+                  type: string
+                descripcion:
+                  type: string
+                precio:
+                  type: number
+                stock:
+                  type: number
+                tipo:
+                  type: string
+      responses:
+        "201":
+          description: Producto creado
+
+  /producto/{id}:
+    put:
+      tags:
+        - Productos
+      summary: Actualizar un producto
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - nombre
+                - descripcion
+                - precio
+                - stock
+                - tipo
+              properties:
+                nombre:
+                  type: string
+                descripcion:
+                  type: string
+                precio:
+                  type: number
+                stock:
+                  type: number
+                tipo:
+                  type: string
+      responses:
+        "200":
+          description: Producto actualizado
+
+    patch:
+      tags:
+        - Productos
+      summary: Actualizar stock del producto
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - stock
+              properties:
+                stock:
+                  type: number
+      responses:
+        "200":
+          description: Stock actualizado
+
+    delete:
+      tags:
+        - Productos
+      summary: Eliminar un producto
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Producto eliminado
+
+  /servicio:
+    get:
+      tags:
+        - Servicios
+      summary: Obtener todos los servicios disponibles
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Lista de servicios
+
+    post:
+      tags:
+        - Servicios
+      summary: Crear un nuevo servicio
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - titulo
+                - descripcion
+                - fecha
+                - ubicacion
+                - cupos
+              properties:
+                titulo:
+                  type: string
+                descripcion:
+                  type: string
+                fecha:
+                  type: string
+                  format: date
+                ubicacion:
+                  type: string
+                cupos:
+                  type: integer
+      responses:
+        "201":
+          description: Servicio creado correctamente
+
+  /servicio/{id}:
+    put:
+      tags:
+        - Servicios
+      summary: Actualizar un servicio
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - titulo
+                - descripcion
+                - fecha
+                - ubicacion
+                - cupos
+              properties:
+                titulo:
+                  type: string
+                descripcion:
+                  type: string
+                fecha:
+                  type: string
+                  format: date
+                ubicacion:
+                  type: string
+                cupos:
+                  type: integer
+      responses:
+        "200":
+          description: Servicio actualizado
+
+    delete:
+      tags:
+        - Servicios
+      summary: Eliminar un servicio
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Servicio eliminado
+
+    patch:
+      tags:
+        - Servicios
+      summary: Actualizar los cupos de un servicio
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - cupos
+              properties:
+                cupos:
+                  type: integer
+      responses:
+        "200":
+          description: Cupos actualizados correctamente

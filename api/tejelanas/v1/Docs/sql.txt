@@ -1,0 +1,35 @@
+create DATABASE ev3_back_tejelanas;
+
+CREATE TABLE productos (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(100) NOT NULL,
+  descripcion TEXT,
+  precio DECIMAL(10,2) NOT NULL,
+  stock INT NOT NULL,
+  tipo VARCHAR(50),
+  estado TINYINT(1) DEFAULT 1,
+  creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE servicios (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  titulo VARCHAR(100) NOT NULL,
+  descripcion TEXT,
+  fecha DATETIME NOT NULL,
+  ubicacion VARCHAR(100),
+  cupos INT NOT NULL,
+  estado TINYINT(1) DEFAULT 1,
+  creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+INSERT INTO productos (nombre, descripcion, precio, stock, tipo)
+VALUES
+('Lana Merino Natural', 'Lana suave ideal para prendas de bebé.', 5500, 30, 'lana'),
+('Vellón para Fieltro', 'Vellón cardado para manualidades.', 3200, 50, 'vellón'),
+('Lana Gruesa de Colores', 'Perfecta para bufandas y gorros.', 4800, 20, 'lana');
+
+INSERT INTO servicios (titulo, descripcion, fecha, ubicacion, cupos)
+VALUES
+('Taller de Crochet Inicial', 'Aprende desde cero a tejer en crochet.', '2025-06-15 10:00:00', 'TEJElANAS, Laguna de Zapallar', 12),
+('Taller de Fieltro Creativo', 'Crea figuras en fieltro con vellón natural.', '2025-06-20 15:00:00', 'TEJElANAS, Laguna de Zapallar', 10);
