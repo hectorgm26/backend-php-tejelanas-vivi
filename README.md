@@ -46,7 +46,7 @@ Desde ahí podrás enviar solicitudes a los endpoints CRUD, ver ejemplos y respu
 ## Requisitos
 
 - PHP 8.0 o superior
-- Servidor web compatible con `.htaccess` (Apache recomendado)
+- Servidor web compatible con `.htaccess` (Apache recomendado). Se recomienda XAMPP o Laragon
 - Navegador para Swagger UI o cliente HTTP como Postman
 
 ## Cómo iniciar
