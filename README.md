@@ -57,13 +57,14 @@ Desde ahí podrás enviar solicitudes a los endpoints CRUD, ver ejemplos y respu
    ```
 
 2. Configura tu servidor PHP (por ejemplo, XAMPP, WAMP, o PHP built-in server).
+3. Crear la base de datos respectiva (en la carpeta v1/Docs hay un archivo txt que sirve para el modelo de creación y llenado con datos de prueba ficticios para su implementación)
 
-3. Accede a la documentación Swagger para probar la API:
+4. Accede a la documentación Swagger para probar la API:
    ```
    http://localhost/api-tejelanas/api/tejelanas/docs.php
    ```
 
-4. Utiliza Swagger UI o Postman para probar las operaciones CRUD definidas.
+5. Utiliza Swagger UI o Postman para probar las operaciones CRUD definidas.
 
 ## Arquitectura del Sistema
 
