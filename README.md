@@ -11,18 +11,19 @@ Este proyecto proporciona la lógica backend para gestionar datos del emprendimi
 ```
 /api-tejelanas/
 │
-├── /tejelanas/
-│   ├── /swagger-ui/        # Interfaz Swagger UI para testeo de endpoints
-│   ├── .htaccess           # Configuraciones del servidor (URL rewrite, etc.)
-│   ├── index.php           # Punto de entrada y enrutado de la API
-│   ├── swagger.yaml        # Archivo de especificación Swagger de la API
-│   ├── docs.php            # Redirige a Swagger UI cargando swagger.yaml
-│   └── /v1/                # Versión 1 de la API
-│       ├── /Config/        # Configuración de base de datos
-│       ├── /Models/        # Modelos PHP que representan las entidades
-│       ├── /Controller/    # Controladores para las operaciones CRUD
-│       └── /Docs/          # Documentación adicional
-│           └── ejemplo_db.txt  # Ejemplo básico de llenado de base de datos
+├── /api/
+│   └── /tejelanas/
+│       ├── /swagger-ui/        # Interfaz Swagger UI para testeo de endpoints
+│       ├── .htaccess           # Configuraciones del servidor (URL rewrite, etc.)
+│       ├── index.php           # Punto de entrada y enrutado de la API
+│       ├── swagger.yaml        # Archivo de especificación Swagger de la API
+│       ├── docs.php            # Redirige a Swagger UI cargando swagger.yaml
+│       └── /v1/                # Versión 1 de la API
+│           ├── /Config/        # Configuración de base de datos
+│           ├── /Models/        # Modelos PHP que representan las entidades
+│           ├── /Controller/    # Controladores para las operaciones CRUD
+│           └── /Docs/          # Documentación adicional
+│               └── ejemplo_db.txt  # Ejemplo básico de llenado de base de datos
 ```
 
 ## Acceso a la documentación
